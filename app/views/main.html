@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Meus lembretes</h2>
+    <!-- Todos input -->
+    <form name="todoForm" class="todoForm" role="form" ng-submit="addTodo()">
+        <div class="row">
+            <div class="input-group">
+                <input name="newTodo"
+                       type="text" 
+                       ng-model="newTodo"
+                       placeholder="Tenho que lembrar de..."
+                       class="form-control"
+                       required>
+                <span class="input-group-btn">
+                    <input type="submit" class="btn btn-primary" value="Adicionar">
+                </span>
+            </div>
+        </div>
+    </form>
+    
+    <!-- List -->
+    <div ui-sortable ng-model="todos">
+        <p class="input-group sortable" ng-repeat="todo in todos">
+            <input type="text" 
+                   ng-model="todo" 
+                   class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-danger"
+                        aria-label="Remover" 
+                        ng-click="removeTodo($index)">X</button>
+            </span>
+        </p>
+    </div>
+</div>
